@@ -28,7 +28,7 @@ public enum BugTrigger
 public class Bug
 {
     private StateMachine<BugState, BugTrigger> _machine;
-    private BugState _currentState;Expand annotationCheck warning on line R33Expand annotationCheck warning on line R33
+    private BugState _currentState;
     
     public BugState CurrentState => _machine.State;
     
