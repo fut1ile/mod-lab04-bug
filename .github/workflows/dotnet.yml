@@ -1,12 +1,9 @@
 name: .NET
 
-
 on: [push, pull_request]
 
-
 jobs:
- build:
-
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,6 +12,20 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '9.0.x'
+    - name: Debug - List all files
+      run: |
+        echo "=== Current directory ==="
+        pwd
+        echo "=== Full file list ==="
+        ls -la
+        echo "=== BugPro directory ==="
+        ls -la BugPro/ || echo "BugPro directory not found!"
+        echo "=== BugTests directory ==="
+        ls -la BugTests/ || echo "BugTests directory not found!"
+        echo "=== Check BugPro.csproj content ==="
+        cat BugPro/BugPro.csproj || echo "File not found!"
+        echo "=== Check file encoding ==="
+        file BugPro/BugPro.csproj || echo "File not found!"
     - name: Restore dependencies
       run: dotnet restore ST-4.sln
     - name: Build
