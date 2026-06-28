@@ -89,7 +89,7 @@ public class BugTests
     
     [TestMethod]
     public void Test8_Reject_ShouldChangeStateToRejected()
-  
+    {
         var bug = new Bug();
 
         bug.Fire(BugTrigger.Reject);
